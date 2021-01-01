@@ -92,6 +92,7 @@ public:
         memset(x,0,n);
         for(i=0;i<n;i++){
             for(j=0;j<n;j++){
+                //矩阵计算
                 x[i]=x[i]+arr[i][j]*V1.v[j];
             }
         }
