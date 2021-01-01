@@ -1,11 +1,10 @@
-
+//github测试
 #include <iostream>
 #include <cstring>
 using namespace std;
 class CVector{
 private:
     int *v;
-    int c; //测试git用
     int m;
     friend class CMatrix;
 public:
