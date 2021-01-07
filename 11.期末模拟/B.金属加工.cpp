@@ -49,3 +49,67 @@
 硬度4--重量4500--体积450
 
 */
+
+
+#include <iostream>
+using namespace std;
+class js{
+protected:
+    int x,m,v;
+public:
+    js(int _x=0,int _m=0,int _v=0):x(_x),m(_m),v(_v){}
+    
+    friend js operator+(js &j1,js &j2);
+    friend js operator*(js &j,int _n);
+    //硬化
+    void operator++(int n){
+        m=m*1.1;
+        v=v*1.1;
+        x=x+1;
+    }
+    //软化
+    void operator --(int n){
+        m=m*0.9;
+        v=v*0.9;
+        x=x-1;
+    }
+    void print(){
+        cout<<"硬度"<<x<<"--"<<"重量"<<m<<"--"<<"体积"<<v<<endl;
+    }
+};
+
+    //金属合并
+js operator+(js &j1,js &j2){
+    js a(0,0,0);
+    a.x=j2.x+j1.x;
+    a.m=j2.m+j1.m;
+    a.v=j2.v+j1.v;
+    return a;
+}
+    //巨化
+js operator*(js &j,int _n){
+    js a;
+    a.x=j.x;
+    a.m=j.m;
+    a.v=j.v*_n;
+    return a;
+}
+
+int main(){
+    int a,b,c;
+    cin>>a>>b>>c;
+    js j1(a,b,c);
+    cin>>a>>b>>c;
+    js j2(a,b,c);
+    cin>>a;
+    js jhb=j1+j2;
+    js jj;
+    jhb.print();
+    jj=j1*a;
+    jj.print();
+    j1++;
+    j1.print();
+    j2--;
+    j2.print();
+    return 0;
+}
