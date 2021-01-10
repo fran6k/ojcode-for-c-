@@ -85,7 +85,7 @@ int main() {
 		string J;
 		double value;
 		cin >> J;
-		const string* p = &J;
+		string* p = &J;
 		cin >> value;
 		tran(&value, *p);
 
